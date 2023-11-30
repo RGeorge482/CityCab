@@ -60,4 +60,15 @@ contract CityCab {
         return rideRate;
     }
 
+    	// if trip was cancelled and payment was made in advance, driver can return payment
+	function returnClinetPayment() public {
+		address payable to = payable(msg.sender);
+		to.transfer(address(this).balance);
+	} 
+
+    // with this function we check the balance of our smart contract
+	function getPaymentsValue() public view returns(uint) {
+        return balance[msg.sender];
+    }
+
 }
