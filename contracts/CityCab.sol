@@ -22,10 +22,30 @@ contract CityCab {
         client = msg.sender; // the address of the client
     }
 
-    // create aride using passenger name and time
+    // create a ride using passenger name and time
     function create_ride(string memory passenger, uint time) public {
         ride_counter++;
         rides[ride_counter] = Ride(ride_counter, passenger, time, false);//reference to rides
     }
+
+      // driver accept a ride, using and id and trip value
+    function accept_ride(uint rideID, uint trip_value) view  public returns (bool){
+        if(rideID <= ride_counter && trip_value > 5){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    // client pay for a ride
+    function payRide(uint _payRideAmount) public returns(uint){ 
+        emit DisplayMessage("Payment made");
+        require(msg.sender == client);
+        balance[msg.sender] += _payRideAmount;
+        return balance[msg.sender];
+    }
+
+     // display a message when the function is called
+    event DisplayMessage(string message);
 
 }
