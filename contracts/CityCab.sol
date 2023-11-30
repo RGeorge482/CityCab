@@ -48,4 +48,16 @@ contract CityCab {
      // display a message when the function is called
     event DisplayMessage(string message);
 
+        // driver message
+    function completeRide() public {
+        emit DisplayMessage("Ride complete, the customer payed for the trip");
+    } 
+
+	// client rating feedback 
+    function clientFeedback(uint rideRate) public returns (uint) {
+        require(rideRate >= 1 && rideRate <= 5, "Rating must be between 1 and 5");
+        emit DisplayMessage("My rate for the trip is:");
+        return rideRate;
+    }
+
 }
