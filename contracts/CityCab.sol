@@ -14,5 +14,18 @@ contract CityCab {
        bool accept_ride;
     }
 
-    
+    mapping(uint => Ride) public rides;  //uint is the reference and now I am able to create rides
+    mapping(address => uint) balance; // get the balance of each address 
+
+    // we run the constructor during the deployments 
+    constructor() public {
+        client = msg.sender; // the address of the client
+    }
+
+    // create aride using passenger name and time
+    function create_ride(string memory passenger, uint time) public {
+        ride_counter++;
+        rides[ride_counter] = Ride(ride_counter, passenger, time, false);//reference to rides
+    }
+
 }
