@@ -2,7 +2,6 @@
 
 pragma solidity >= 0.4.0 < 0.9.0;
 
-//import "remix_tests.sol"; // testing import
 import "../contracts/CityCab.sol";
 
 // test our smart contract

@@ -6,9 +6,42 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
-				"stateMutability": "nonpayable",
-				"type": "constructor"
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "AmountReceived",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "AmountSent",
+				"type": "event"
 			},
 			{
 				"anonymous": false,
@@ -48,19 +81,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "client",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -76,6 +96,19 @@
 						"type": "uint256"
 					}
 				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "_to",
+						"type": "address"
+					}
+				],
+				"name": "clientPaymentTo",
+				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
@@ -106,7 +139,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "getPaymentsValue",
+				"name": "getAmount",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -118,14 +151,8 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_payRideAmount",
-						"type": "uint256"
-					}
-				],
-				"name": "payRide",
+				"inputs": [],
+				"name": "getPaymentsValue",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -133,7 +160,7 @@
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -147,13 +174,6 @@
 					}
 				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "returnClinetPayment",
-				"outputs": [],
-				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -202,6 +222,10 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
 			}
 		],
 		"devdoc": {
@@ -228,11 +252,11 @@
 	},
 	"sources": {
 		"contracts/CityCab.sol": {
-			"keccak256": "0x2540587b91017d412efbf403c96433e5dd39601e8d03b5413a38cddd010dd6f3",
+			"keccak256": "0xa02d959be67d85051c81ad84e28dcc6c7dbef4ecf98d08e96580aef6297e6dfc",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://5144610fcf0ed105591b9c38f12b8d3cff427db2e6988aacdc803edb2b5d9315",
-				"dweb:/ipfs/Qmc1LeKimJ8t5NZViNTivu2pifUwd3jPtK7cKWnud5AGMF"
+				"bzz-raw://4a1e83381df52f594c79789135ddd1e5f51b24f56783742845df04c40b068847",
+				"dweb:/ipfs/QmRJYnAwx2mgo1vXvsZkU6kZMtpNWzPAEaEpSj91o2RCMN"
 			]
 		}
 	},
